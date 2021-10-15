@@ -2,8 +2,14 @@ import './ExpenseItem.css';
 import ExpenseDate from '../ExpenseDate/ExpenseDate';
 import Card from '../../UI/Card/Card';
 
-function ExpenseItem(props) {
-  const {date, title, amount} = props;
+type IExpense = {
+  date: Date;
+  title: string;
+  amount: number;
+}
+
+const ExpenseItem: React.FC<IExpense> = (props) => {
+  const { date, title, amount } = props;
 
   return <Card className='expense-item'>
     <ExpenseDate date={date}/>

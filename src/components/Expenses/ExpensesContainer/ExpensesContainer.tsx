@@ -1,9 +1,14 @@
 import './ExpensesContainer.css';
 import ExpenseItem from '../ExpenseItem/ExpenseItem';
 import Card from '../../UI/Card/Card';
+import { Expense } from "../../../models/expense";
 
-export default function ExpensesContainer(props) {
-  const {expenses} = props;
+type Expenses = {
+  expenses: Expense[];
+};
+
+const ExpensesContainer: React.FC<Expenses> = (props) => {
+  const { expenses } = props;
 
   return <Card className='expenses'>
     {expenses.map(expense => {
@@ -16,3 +21,5 @@ export default function ExpensesContainer(props) {
     })}
   </Card>;
 }
+
+export default ExpensesContainer;

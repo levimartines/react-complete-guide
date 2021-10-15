@@ -1,10 +1,10 @@
 import './ExpenseDate.css';
 
-function ExpenseDate(props) {
-  const {date} = props;
+const ExpenseDate: React.FC<{ date: Date }> = (props) => {
+  const { date } = props;
 
-  const month = date?.toLocaleString('us-US', {month: 'long'});
-  const day = date?.toLocaleString('us-US', {day: '2-digit'});
+  const month = date?.toLocaleString('us-US', { month: 'long' });
+  const day = date?.toLocaleString('us-US', { day: '2-digit' });
   const year = date?.getFullYear();
 
   return (
