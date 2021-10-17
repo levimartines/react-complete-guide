@@ -1,4 +1,4 @@
-export interface Expense {
+export default interface Expense {
   id?: string,
   title: string,
   amount: number,

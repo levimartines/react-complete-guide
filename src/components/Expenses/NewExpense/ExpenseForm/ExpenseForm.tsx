@@ -1,8 +1,8 @@
 import React, { ChangeEvent, useState } from "react";
 import "./ExpenseForm.css";
-import { Expense } from "../../../../models/expense";
+import Expense from "../../../../models/expense";
 
-const ExpenseForm: React.FC<{ onSaveExpense: (expense: Expense) => void }> = (props) => {
+const ExpenseForm: React.FC<{ onSaveExpense: (expense: Expense) => void, onCancel: () => void }> = (props) => {
   const [title, setTitle] = useState('');
   const titleChangeHandler = (event: ChangeEvent<HTMLInputElement>) => setTitle(event.target.value);
 
@@ -19,6 +19,10 @@ const ExpenseForm: React.FC<{ onSaveExpense: (expense: Expense) => void }> = (pr
     props.onSaveExpense(expense);
     clearForm();
   };
+
+  const cancelForm = () => {
+    props.onCancel();
+  }
 
   const clearForm = () => {
     setTitle('');
@@ -44,6 +48,7 @@ const ExpenseForm: React.FC<{ onSaveExpense: (expense: Expense) => void }> = (pr
       </div>
     </div>
     <div className="new-expense__actions">
+      <button type="button" onClick={cancelForm}>Cancel</button>
       <button type="submit">Add Expense</button>
     </div>
   </form>
