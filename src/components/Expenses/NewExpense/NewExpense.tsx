@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./NewExpense.css";
 import ExpenseForm from "./ExpenseForm/ExpenseForm";
 import Expense from "../../../models/expense";
+import Button from "../../UI/Button/Button";
 
 const NewExpense: React.FC<{ onAddExpense: (expense: Expense) => void }> = (props) => {
   const [showForm, setShowForm] = useState(false);
@@ -15,7 +16,7 @@ const NewExpense: React.FC<{ onAddExpense: (expense: Expense) => void }> = (prop
 
   return <div className="new-expense">
     {showForm && <ExpenseForm onSaveExpense={onSaveExpense} onCancel={hideForm}/>}
-    {!showForm && <button onClick={() => setShowForm(true)}>Add New Expenses</button>}
+    {!showForm && <Button onClick={() => setShowForm(true)} invalid={false}>Add New Expenses</Button>}
   </div>
 };
 
