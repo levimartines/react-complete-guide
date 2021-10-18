@@ -1,14 +1,18 @@
-import styled from "styled-components";
+import React from "react";
+import styles from "./AlternativeButton.module.css";
 
-const AlternativeButton = styled.button`
-  color: #220131;
-  border-color: transparent;
-  background-color: transparent;
+type AlternativeButtonType = {
+  className: string;
+  type: 'button' | 'submit' | 'reset';
+  onClick: () => void;
+}
 
-  &:hover,
-  &:active {
-    background-color: #ddb3f8;
-  }
-`;
+const AlternativeButton: React.FC<AlternativeButtonType> = (props) => {
+  return <button
+    className={props.className || styles.alternativeButton}
+    type={props.type || 'button'}
+    onClick={props.onClick}
+  >{props.children}</button>
+};
 
 export default AlternativeButton;
